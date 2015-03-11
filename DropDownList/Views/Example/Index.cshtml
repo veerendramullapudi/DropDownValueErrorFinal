@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+@Html.DropDownList("MyDropDown1", new SelectList(new[] { "select..", "value1", "value2", "value3", "value4", "value5", "value6" }), new { @id = "Id1", onchange = "checkit(this)" })
+@Html.DropDownList("MyDropDown2", new SelectList(new[] { "select..", "value1", "value2", "value3", "value4", "value5", "value6" }), new { @id = "Id2", onchange = "checkit(this)" })
+@Html.DropDownList("MyDropDown3", new SelectList(new[] { "select..", "value1", "value2", "value3", "value4", "value5", "value6" }), new { @id = "Id3", onchange = "checkit(this)" })
+}
+
+<script src="~/Content/jquery-1.11.2.min.js"></script>
+<script>
+    function checkit(ctrl)
+    {
+        var i;
+        for(i=1;i<4;i++)
+        {
+            if(ctrl.id!="Id"+i)
+            {
+                if($("#Id"+i).val()==ctrl.value)
+                {
+                    alert("Error");
+                }
+            }
+        }
+    }
+</script>
